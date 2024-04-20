@@ -23,6 +23,7 @@ function setup() {
   // Start classifying
   // The sound model will continuously listen to the microphone
   classifier.classify(gotResult);
+  loadImage('images/background.png');
 }
 
 function draw() {
@@ -31,7 +32,7 @@ function draw() {
   fill(255);
   textSize(32);
   textAlign(CENTER, CENTER);
-  //text(label, width / 2, height / 2);
+  text(label, width / 2, height / 2);
   image(img, 0, 0);
 }
 
