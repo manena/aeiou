@@ -11,11 +11,15 @@ let label = 'listening...';
 
 // Teachable Machine model URL:
 let soundModel = 'https://teachablemachine.withgoogle.com/models/lypBslk7D/';
-var img;
+let img;
 
 function preload() {
   // Load the model
   classifier = ml5.soundClassifier(soundModel + 'model.json');
+
+
+  img = loadImage('images/background.png');
+
 }
 
 function setup() {
@@ -23,7 +27,7 @@ function setup() {
   // Start classifying
   // The sound model will continuously listen to the microphone
   classifier.classify(gotResult);
-  loadImage('images/background.png');
+  
 }
 
 function draw() {
