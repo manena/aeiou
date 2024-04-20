@@ -37,7 +37,7 @@ function draw() {
   textSize(32);
   textAlign(CENTER, CENTER);
   text(label, width / 2, height / 2);
-  image(img, 0, 0,800);
+  image(img, 0, 0);
 }
 
 
@@ -51,10 +51,9 @@ function gotResult(error, results) {
   // console.log(results[0]);
   if(results[0].confidence>0.55 & results[0].label!='Background Noise'){
     label = results[0].label;
-    ext = '.jpeg';
-    if(label=='U')
-      ext = '.png';
-    img = loadImage('images/letra_'+label+ext);
+    ext = '.jpg';
+    
+    img = loadImage('images/'+label+ext);
   }
 }
 </script>
