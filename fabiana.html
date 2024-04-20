@@ -8,7 +8,7 @@ let classifier;
 
 // Label
 let label = 'listening...';
-
+let hide = false;
 // Teachable Machine model URL:
 let soundModel = 'https://teachablemachine.withgoogle.com/models/lypBslk7D/';
 let img;
@@ -36,7 +36,8 @@ function draw() {
   textSize(32);
   textAlign(CENTER, CENTER);
   text(label, width -60, height-60);
-  image(img, width / 2, height / 2);
+  if(!hide)
+    image(img, width / 2, height / 2);
 }
 
 
@@ -53,10 +54,10 @@ function gotResult(error, results) {
     ext = '.jpeg';
     
     img = loadImage('images/'+label+ext);
-    img.show();
+    hide = false;
   }
   else{
-    img.hide();
+    hide = true;
   }
 }
 </script>
